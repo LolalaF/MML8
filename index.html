@@ -1,69 +1,50 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
-        <script src="https://unpkg.com/aframe-event-set-component@^4.0.0/dist/aframe-event-set-component.min.js"></script>
-    </head>
+<Script src="https://aframe.io/releases/0.7.1/aframe.min.js"></Script>
+<Script src="https://unpkg.com/aframe-event-set-component@4.0.0/dist/aframe-event-set-component.min.js"></Script>
+<Script src="https://unpkg.com/super-hands@2.1.0/dist/super-hands.min.js"></Script>
+<script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
 
-    <body>
-
-        <a-scene> <!--VR space-->
-            <a-entity>
-                <a-camera>
-                    <a-cursor>
-
-                    </a-cursor>
-                </a-camera>
-            </a-entity>
+</head>
 
 
+<body>
+    <a-scene physics="gravity: -9.8; restitution: .7"> 
+
+        <a-ssets>
+            <img id="ground" src="box.jpg">
+        </a-ssets>
+
+        <a-entity progressive-controls position="0 0 7.5">
+            <a-camera>
+                <a-cursor>
+
+                </a-cursor>
+            </a-camera>
+        </a-entity>
+
+        <a-plane src="#ground" scale="30 30 8" repeat="5 5 2" rotation="-90 0 0" static-body>  
+        </a-plane>
+
+        <a-sphere color="lightgreen" radius="0.5" position="-2.8 4 1"
+        grabbable dynamic-body="linearDamping: 0.01; mass: 50">
+        </a-sphere>
+
+        <a-sphere color="lightblue" radius="0.5" position="-1 4 1"
+        grabbable dynamic-body="linearDamping: .01; mass: 1">
+        </a-sphere>
+
+        <a-box color="blue" position="1 1 1" height="1" width="1.5" depth="4" static-body>
+        </a-box>
 
 
-
-
-            <a-box color="red" id="red" position="-2 3 -7"
-            event-set__closepink="_event: mouseenter; material.color:black"
-            event-set__awayred="_event: mouseleave; material.color:red">
-            </a-box>
-
-            <a-box color="pink" id="pink" position="-4 3 -7"
-            event-set__bluevis="_event: click; _target: #blue; visible: true">
-            </a-box>
-
-            <a-box color="yellow" id="yellow" position="0 3 -7"
-            event-set__respos="_event: click; _target: #green; position: -2 1 -7">
-            </a-box>
- 
-            <a-box color="green" id="green" position="-2 1 -7"></a-box>
-
-            <a-box color="blue" id="blue" position="-4 1 -7"
-            event-set__blueinv="_event: click; visible: false">
-            </a-box>
-
-
-            <a-box color="purple" id="purple" position="0 1 -7"
-            event-set__tarpurple="_event: click; _target: #green; position: -2 3 -5;">
-                </a-box>
-           
+    </a-scene>
 
 
 
 
 
 
-
-
-        </a-scene>
-        
-    </body>
-
-
-
-
-
-
-
-
-
-
+</body>
 </html>
